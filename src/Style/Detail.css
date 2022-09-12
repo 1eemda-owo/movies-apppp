@@ -1,0 +1,41 @@
+@import "./reset.css";
+
+.detail__bg{ 
+    width: 95vw;
+    height: 50vh;
+    object-fit: cover;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);  
+    margin-top: 10px;
+}
+
+.detail__poster{
+    position: absolute;
+    top: 30vh;
+    left: 10vw;
+}
+
+.detail__title{
+    position: relative;
+    font-size: 3em;
+    left: 30vw;
+    margin-top: 20px;
+}
+
+.detail__intro{
+    position: absolute;
+    left: 30vw;
+    margin-top: 40px;
+    width: 65vw;
+}
+
+.detail__info{
+    position: absolute;
+    left: 30vw;
+    margin-top: 10px;
+}
+
+.detail__data{
+    width: 65vw;
+}

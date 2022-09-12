@@ -1,25 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../Style/Movie.css';
 
-function Movie({ id, title, rating, poster, year }) {
+function Movie({ id, title, rating, poster }) {
   return (
-    <Link to={`/detail/${id}`} key={id}>
-      <div className="movie">
-        <img src={poster} alt={title} title={title} />
-        <div className="movie__data">
-          <h3 className="movie__title">{title}</h3>
-          <h5 className="movie__rating">{rating}</h5>
-          <h5 className="movie__year">{year}</h5>
+    <section className="movie_box">
+      <Link to={`/detail/${id}`} key={id}>
+        <div className="movie">
+          <img
+            className="movie__poster"
+            src={poster}
+            alt={title}
+            title={title}
+          />
+          <div className="movie__data">
+            <p className="movie__rating">★{rating}</p>
+            <p className="movie__title">{title}</p>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </section>
   );
 }
 
 Movie.propTypes = {
   id: PropTypes.number.isRequired,
-  year: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,

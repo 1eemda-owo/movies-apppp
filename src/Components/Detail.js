@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import '../Style/Detail.css';
 
 function Detail() {
   const { id } = useParams();
@@ -29,11 +30,14 @@ function Detail() {
         alt={movie.title}
         tilte={movie.title}
       />
-      <div className="detail__info">
+      <div className="detail__data">
         <h1 className="detail__title">{movie.title}</h1>
-        <h3 className="detail__intro">{movie.description_intro}</h3>
-        <h5 className="detail__rating">{movie.rating}</h5>
-        <h5 className="detail__like">{movie.like_count}</h5>
+        <h2 className="detail__intro">{movie.description_intro}</h2>
+        <div className="detail__info">
+          <p className="detail__rating">
+            ★{movie.rating} ♥{movie.like_count}
+          </p>
+        </div>
       </div>
     </section>
   );

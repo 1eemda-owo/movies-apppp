@@ -1,0 +1,42 @@
+@import "./reset.css";
+
+body{
+    background: #0a0b07;
+    color: whitesmoke;
+}
+
+.movies{
+    position: absolute;
+    left: 40vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.movie__poster{
+    filter: drop-shadow(4px 4px 4px #000);
+}
+
+.movie__data{
+    margin-top: 10px;
+}
+
+.movie_box{
+    margin-bottom: 30px;
+}
+
+.movie__rating{
+    font-size: 85%;
+    font-weight: bold;
+    color: rgb(240, 167, 9);
+}
+
+.movie__title{
+    padding-top: 10px;
+}

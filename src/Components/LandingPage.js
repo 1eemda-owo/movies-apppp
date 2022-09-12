@@ -41,9 +41,6 @@ class LandingPage extends React.Component {
                 title={movie.title}
                 rating={movie.rating}
                 poster={movie.medium_cover_image}
-                year={movie.year}
-                //bg={movie.background_image}
-                //intro={movie.description_full}
               />
             ))}
           </div>
