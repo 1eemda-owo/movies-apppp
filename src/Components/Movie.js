@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../Style/Movie.css';
 
 function Movie({ id, title, rating, poster }) {
+  console.log("!!!!!!!!");
   return (
     <section className="movie_box">
       <Link to={`/detail/${id}`} key={id}>

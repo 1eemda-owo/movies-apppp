@@ -16,7 +16,6 @@ class LandingPage extends React.Component {
 
   getMovies = async () => {   
     const {storeSort} = this.props;
-
     //console.log(this.state.sortkey);
     //console.log(this.state);
     console.log(storeSort);
@@ -42,7 +41,7 @@ class LandingPage extends React.Component {
 
   render() {
     const {storeGrid} = this.props;
-    console.log(storeGrid);
+    //console.log(storeGrid);
     const { isLoading, movies } = this.state;
     return (
       <section className="container">
@@ -55,17 +54,18 @@ class LandingPage extends React.Component {
           <div className={classNames("movies", storeGrid)} >
             {movies.map((movie) => (
               <Movie
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                rating={movie.rating}
-                poster={movie.medium_cover_image}
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              rating={movie.rating}
+              poster={movie.medium_cover_image}
               />
-            ))}
+              ))}
           </div>
         )}
       </section>
     );
+
   }
 
 }
