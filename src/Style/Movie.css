@@ -7,11 +7,18 @@ body{
 
 .movies{
     position: absolute;
-    left: 40vw;
-    text-align: center;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     padding-top: 50px;
+}
+
+.grid_3{
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.grid_5{
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
 }
 
 a {

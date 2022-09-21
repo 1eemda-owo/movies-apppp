@@ -1,3 +1,0 @@
-//sort
-//gird
-//home

@@ -1,29 +1,48 @@
+import Movie from './Movie'
 import React from 'react';
 import axios from 'axios';
-import Movie from './Movie';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
 import '../Style/Loading.css';
 
 class LandingPage extends React.Component {
+
   state = {
-    apiUrl: `https://yts.mx/api/v2/list_movies.json?limit=15&sort_by=rating`,
+    apiurl: `https://yts.mx/api/v2/list_movies.json?limit=15&sort_by=`,
     isLoading: true,
     movies: [],
-  };
+    sortkey: '',
+  }
 
-  getMovies = async () => {
+  getMovies = async () => {   
+    const {storeSort} = this.props;
+
+    //console.log(this.state.sortkey);
+    //console.log(this.state);
+    console.log(storeSort);
+
+
     const {
       data: {
         data: { movies },
       },
-    } = await axios.get(this.state.apiUrl);
+    } = await axios.get(this.state.apiurl + storeSort);
     this.setState({ movies, isLoading: false });
   };
-
+  
   componentDidMount() {
     this.getMovies();
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.storeSort !== prevProps.storeSort ) {
+      this.getMovies();
+    }
+  }
+
   render() {
+    const {storeGrid} = this.props;
+    console.log(storeGrid);
     const { isLoading, movies } = this.state;
     return (
       <section className="container">
@@ -33,7 +52,7 @@ class LandingPage extends React.Component {
             <span className="loader loader_text">Loading...</span>
           </div>
         ) : (
-          <div className="movies">
+          <div className={classNames("movies", storeGrid)} >
             {movies.map((movie) => (
               <Movie
                 key={movie.id}
@@ -48,5 +67,13 @@ class LandingPage extends React.Component {
       </section>
     );
   }
+
 }
-export default LandingPage;
+
+const mapStateToProps = (state) => ({
+  storeSort: state.sort.key,
+  storeGrid: state.grid.g_key
+});
+
+
+export default connect(mapStateToProps)(LandingPage);

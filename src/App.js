@@ -1,12 +1,14 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
-import LandingPage from './Components/LandingPage';
 import Detail from './Components/Detail';
+import Nav from './Components/Nav';
+import Home from './Components/Home';
 
 function App() {
   return (
     <HashRouter>
-      <Route path="/" exact={true} component={LandingPage} />
+      <Nav />
+      <Route path="/" exact={true} component={Home} />
       <Route path="/detail/:id" component={Detail} />
     </HashRouter>
   );

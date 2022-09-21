@@ -4,7 +4,7 @@ import '../Style/Detail.css';
 
 function Detail() {
   const { id } = useParams();
-  const [movie, setMovie] = useState('');
+  const [movie, setMovie] = useState({});
   const getDetail = async () => {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
@@ -15,6 +15,7 @@ function Detail() {
   useEffect(() => {
     getDetail();
   });
+  
 
   return (
     <section className="details">
